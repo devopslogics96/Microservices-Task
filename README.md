@@ -5,6 +5,34 @@ This document provides details on testing various services after running the `do
 
 ---
 
+## Dockerfile Setup for Each Service
+
+Each service includes its own `Dockerfile` under its service folder:
+
+- `Microservices/user-service/Dockerfile`
+- `Microservices/product-service/Dockerfile`
+- `Microservices/order-service/Dockerfile`
+- `Microservices/gateway-service/Dockerfile`
+
+Each Dockerfile builds a container image for the service by copying the service code and installing dependencies. The service folders also include `package.json` and `app.js` for the application runtime.
+
+---
+
+## Docker Compose Setup
+
+The `Microservices/docker-compose.yml` file defines the multi-container setup and starts all services together.
+
+The compose file includes:
+
+- `user-service` on port `3000`
+- `product-service` on port `3001`
+- `order-service` on port `3002`
+- `gateway-service` on port `3003`
+
+It builds each service from its folder and connects them in a single network so they can communicate if needed.
+
+---
+
 ## Services and Endpoints
 
 ### **User Service**
@@ -59,10 +87,57 @@ This document provides details on testing various services after running the `do
 ---
 
 ## Instructions
-1. Start all services using the `docker-compose` file:
+1. From the `Microservices` folder, start all services using the `docker-compose` file:
    ```
+   cd Microservices
    docker-compose up
+   ```
+   Optionally run in detached mode:
+   ```
+   docker-compose up -d
    ```
 2. Once the services are running, use the above endpoints to verify the functionality.
 
 Happy testing!
+
+---
+
+## Testing
+
+Use this section to capture and reference screenshots from your service tests.
+
+- `User Service` screenshot
+<br>
+<img src="screenshots/User.png" alt="User Service Test" width="400" height="300">
+- `Product Service` screenshot
+<br>
+<img src="screenshots/Product.png" alt="User Service Test" width="400" height="300">
+- `Order Service` screenshot
+<br>
+<img src="screenshots/Order.png" alt="User Service Test" width="400" height="300">
+- `Gateway Service` screenshot
+<br>
+<img src="screenshots/Gateway.png" alt="User Service Test" width="400" height="300">
+
+Recommended screenshot format:
+
+- Image type: `PNG` or `JPEG`
+- Recommended size: `1200 x 800` pixels (width x height)
+- Maximum width: `1600px`
+- Keep aspect ratio around `3:2` or `4:3`
+
+Example markdown:
+
+```md
+![User Service Test](screenshots/user-service.png)
+![Product Service Test](screenshots/product-service.png)
+```
+
+Example with explicit dimensions using HTML (supported in GitHub README files):
+
+```html
+<img src="screenshots/user-service.png" alt="User Service Test" width="1200" height="800">
+<img src="screenshots/product-service.png" alt="Product Service Test" width="1200" height="800">
+```
+
+Add your screenshots below as needed.
