@@ -118,26 +118,3 @@ Use this section to capture and reference screenshots from your service tests.
 - `Gateway Service` screenshot
 <br>
 <img src="screenshots/Gateway.png" alt="User Service Test" width="400" height="300">
-
-Recommended screenshot format:
-
-- Image type: `PNG` or `JPEG`
-- Recommended size: `1200 x 800` pixels (width x height)
-- Maximum width: `1600px`
-- Keep aspect ratio around `3:2` or `4:3`
-
-Example markdown:
-
-```md
-![User Service Test](screenshots/user-service.png)
-![Product Service Test](screenshots/product-service.png)
-```
-
-Example with explicit dimensions using HTML (supported in GitHub README files):
-
-```html
-<img src="screenshots/user-service.png" alt="User Service Test" width="1200" height="800">
-<img src="screenshots/product-service.png" alt="Product Service Test" width="1200" height="800">
-```
-
-Add your screenshots below as needed.
